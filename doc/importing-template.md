@@ -8,7 +8,7 @@ Process:
 
 1. Navigate to the [Azure DevOps Demo Generator](https://azuredevopsdemogenerator.azurewebsites.net/Account/Verify) and sign into your DevOps organization.
 2. Fill in **Project Name**, select your Organization, and select **Choose Template**.
-3. Select **Private** and upload [this zip file](artifacts/migration-iac.zip).
+3. Select **Private** and upload [this zip file](/artifacts/migration-iac.zip).
 4. Select **Create Project** on the main page. 
 
 ## Helpful Links
