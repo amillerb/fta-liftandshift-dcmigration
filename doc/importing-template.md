@@ -11,5 +11,3 @@ Process:
 3. Select **Private** and upload [this zip file](/artifacts/migration-iac.zip).
 4. Select **Create Project** on the main page. 
 
-## Helpful Links
-[Step-by-step instructions on how to get started with the Azure DevOps Demo Generator](https://github.com/microsoft/AzureDevOpsDemoGenerator/blob/master/docs/Using-The-Generator.md)
