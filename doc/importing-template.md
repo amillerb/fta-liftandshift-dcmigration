@@ -38,11 +38,11 @@ Here is a guidance over the process customization to have something different th
 8. On All Process > Migration, click to Backlog levels and then click to **+ New top level portfolio backlog**
 9. For each case, create a name and assotiate with the work item types on the backlog level. Example:
 
-![portfolio-backlog-1](/png/portfolio-backlog-1)
-![portfolio-backlog-2](/png/portfolio-backlog-2)
-![portfolio-backlog-3](/png/portfolio-backlog-3)
+![portfolio-backlog-1](/png/portfolio-backlog-1.png)
+![portfolio-backlog-2](/png/portfolio-backlog-2.png)
+![portfolio-backlog-3](/png/portfolio-backlog-3.png)
 
 10. Then you'll have something like this:
 
-![portfolio-backlog-4](/png/portfolio-backlog-4)
+![portfolio-backlog-4](/png/portfolio-backlog-4.png)
 
