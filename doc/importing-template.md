@@ -45,3 +45,13 @@ Here is a guidance over the process customization to have something different th
 
 ![portfolio-backlog-4](/png/portfolio-backlog-4.png)
 
+11. Under Organization Settings, go to Boards > Process. Click on the process where initially our project was configured, Agile in this case.
+12. On the top, click to Projects, select your project and click to Change process:
+
+![change-process](/png/change-process.png)
+
+13. Then select the new process created, Migration in this case:
+
+![change-process-1](/png/change-process-1.png)
+
+
