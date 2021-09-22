@@ -31,7 +31,7 @@ Here is a guidance over the process customization to have something different th
 4. Right click on Agile then click to Create inherited process
 5. Name as you want. In this case let's name as Migration, then click to Create process
 6. Click on the Process created (Migration in this case)
-7. On Work item types, click to **+ New work item type** and let's create three: Wave, Deliverable, and Activity.  Please note that you can customer the icon and the color for each one. After you click to create, a new window will be expanded to set extra details as Layout, States and Rules. You don't need change nothing here, just return to previous screen and continue the creation.
+7. On Work item types, click to **+ New work item type** and let's create three: Wave, Deliverable, and Activity.  Please note that you can customize the icon and the color for each one. After you click to create, a new window will be expanded to set extra details as Layout, States and Rules. You don't need change nothing here, just return to previous screen and continue the creation.
 8. On All Process > Migration, click to Backlog levels and then click to **+ New top level portfolio backlog**
 9. For each case, create a name and assotiate with the work item types on the backlog level. Example:
 
