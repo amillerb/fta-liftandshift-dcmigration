@@ -57,3 +57,10 @@ Here is a guidance over the process customization to have something different th
 14. Go to the project > Boards > Backlogs and change the type of each item properly:
 
 ![change-type](/png/change-type.png)
+
+15. After change the type of all items, remember to change the backlog settigns to show the new types created. Go to the Project > Boards > Backlogs and on the top-right click on the engine (Configure team settings) and select Waves, Deliverables and Activities (in this case) and then click on "Save and close".
+
+![backlog-setting-0](/png/backlog-setting-0.png)
+
+![backlog-setting-3](/png/backlog-setting-3.png)
+
