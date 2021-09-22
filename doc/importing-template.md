@@ -8,7 +8,7 @@
 
 1. Navigate to the [Azure DevOps Demo Generator](https://azuredevopsdemogenerator.azurewebsites.net/Account/Verify) and sign into your DevOps organization.
 2. Fill in **Project Name**, select your Organization, and select **Choose Template**.
-3. Select **Private** and upload [this zip file](/artifacts/migration-iac.zip).
+3. Select **Private** and upload [this zip file](/artifacts/iac-migration.zip).
 4. Select **Create Project** on the main page. 
 5. After the successfully provisioning of the template, go to the Project > Boards > Backlogs and on the top-right click on the engine (Configure team settings) and select Waves, Deliverables, Activities then click on "Save and close".
 
