@@ -50,8 +50,10 @@ Here is a guidance over the process customization to have something different th
 
 ![change-process](/png/change-process.png)
 
-13. Then select the new process created, Migration in this case:
+13. Then select the new process created, Migration in this case, and save:
 
 ![change-process-1](/png/change-process-1.png)
 
+14. Go to the project > Boards > Backlogs and change the type of each item properly:
 
+![change-type](/png/change-type.png)
