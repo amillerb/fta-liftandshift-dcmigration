@@ -64,3 +64,7 @@ Here is a guidance over the process customization to have something different th
 
 ![backlog-setting-3](/png/backlog-setting-3.png)
 
+16. Now you'll have something similar to this:
+
+![backlog](/png/backlog.png)
+
