@@ -6,8 +6,8 @@
 
 ### Process:
 
-1. Navigate to the [Azure DevOps Demo Generator](https://azuredevopsdemogenerator.azurewebsites.net/Account/Verify) and sign into your DevOps organization.
-2. Go to https://aka.ms/fta/iacmigrationtemplate, sign into your DevOps organization and you already will be in the correct template selection for IaC Migration (Please note that if you click on Choose template, this template is available under **FastTrack for Azure** tab as well)
+1. Go to https://aka.ms/fta/iacmigrationtemplate, sign into your DevOps organization and you already will be in the correct template selection for IaC Migration (Please note that if you click on Choose template, this template is available under **FastTrack for Azure** tab as well)
+2. Name the project and select your organization
 3. Select **Create Project** on the main page. 
 4. After the successfully provisioning of the template, go to the Project > Boards > Backlogs and on the top-right click on the engine (Configure team settings). Validate that Epics and Stories are selected and then click **Save and Close**. 
 
@@ -28,9 +28,9 @@ It is recommended to utilize Wave, Deliverable, and Activity terminology in nami
 2. Click on Organization Settings
 3. Go to Boards > Process
 4. Right click on Agile then click to Create inherited process
-5. Name as you want. In this case let's name as Migration, then click to Create process
+5. Choose the name of the process, in this example it is named Migration, and then click to Create Process
 6. Click on the Process created (Migration in this case)
-7. On Work item types, click to **+ New work item type** and let's create three: Wave, Deliverable, and Activity.  Please note that you can customize the icon and the color for each one. After you click to create, a new window will be expanded to set extra details as Layout, States and Rules. You don't need change nothing here, just return to previous screen and continue the creation.
+7. On Work item types, click to **+ New work item type** and let's create three: Wave, Deliverable, and Activity.  Please note that you can customize the icon and the color for each one. After you click to create, a new window will be expanded to set extra details as Layout, States and Rules. Nothing needs to be modified on this screen, you can return to previous screen (Migration Process at the top of the page) and continue the creation of the other items.
 8. On All Process > Migration, click to Backlog levels and then click to **+ New top level portfolio backlog**
 9. For each case, create a name and associate with the work item types on the backlog level. Example:
 
@@ -53,7 +53,7 @@ It is recommended to utilize Wave, Deliverable, and Activity terminology in nami
 
 ![change-process-1](/png/change-process-1.png)
 
-14. Go to the project > Boards > Backlogs and change the type of each item properly:
+14. Go to the Project > Boards > Backlogs and change the type of each item properly:
 
 ![change-type](/png/change-type.png)
 
