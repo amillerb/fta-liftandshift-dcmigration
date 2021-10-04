@@ -8,24 +8,7 @@
 
 1. Navigate to the [Azure DevOps Demo Generator](https://azuredevopsdemogenerator.azurewebsites.net/Account/Verify) and sign into your DevOps organization.
 2. Go to https://aka.ms/fta/iacmigrationtemplate, sign into your DevOps organization and you already will be in the correct template selection for IaC Migration (Please note that if you click on Choose template, this template is available under **FastTrack for Azure** tab as well)
-3. Select **Create Project** on the main page. It also may prompt the user to add extensions required with the template:
-* Component Governance - License Terms
-* Component Governance Build Task - License Terms
-* Drop Validator Build Task - License Terms
-* Manifest Generator Task - License Terms
-* Nuget Security Analysis - License Terms
-* Product Catalog - License Terms
-* ARM Outputs - License Terms
-* Bower - License Terms
-* Files and Folders View for Test Attachments - License Terms
-* Microsoft Component Policies - License Terms
-* Product Catalog Inventory Extension - License Terms
-* Release Management Utility tasks - License Terms
-* Replace Tokens - License Terms
-* Repository banner (Prod) - License Terms
-* SARIF SAST Scans Tab - License Terms
-* Team Project Health - License Terms
-* Terraform - License Terms
+3. Select **Create Project** on the main page. 
 4. After the successfully provisioning of the template, go to the Project > Boards > Backlogs and on the top-right click on the engine (Configure team settings). Validate that Epics and Stories are selected and then click **Save and Close**. 
 
 ![backlog-setting-0](/png/backlog-setting-0.png)
