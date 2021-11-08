@@ -1,5 +1,7 @@
-# all steps outlined in the devops document
-trigger: none
+# trigger based on the environment deploying resources in (i.e. prod for production resources)
+
+trigger:
+- non-prod
 
 variables:
 - template: ./variables.yml
