@@ -3,7 +3,7 @@
 #### [prev](./devops-iac-testing.md) | [home](./welcome.md)  
 
 ## 1 Pipeline Execution for Migration
-### 1.1\. Example Pipeline Stages for Migration utilizing the provided [template](./pipelines/migration-pipeline.yml).
+### &nbsp;&nbsp;&nbsp;&nbsp; 1.1\. Example Pipeline Stages for Migration utilizing the provided [template](./pipelines/migration-pipeline.yml).
 - Setup Cutover Window within the pipeline
     - Ensure that there is already a backup of the servers before cutover
 - Initialize Migration
@@ -13,7 +13,7 @@
 - Have rollback plan ready for execution if needed (send traffic to previous server)
 
 ## 2 Post Go-Live 
-### 2.1\. Post migration activities (Optional)
+### &nbsp;&nbsp;&nbsp;&nbsp; 2.1\. Post migration activities (Optional)
 - Validate connections to the VMs that were done in the Testing Phase now that the cutover is complete
 - BCDR Considerations 
     - Backup of Servers
