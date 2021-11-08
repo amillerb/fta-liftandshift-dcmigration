@@ -1,0 +1,59 @@
+# all steps outlined in the devops document
+trigger: none
+
+variables:
+- template: ./variables.yml
+
+pool: windows-latest
+
+stages:
+- stage: Re-host VMs
+  jobs:
+  # Validate Migration Pre-requisites - if the required Azure Resources can be migrated
+    - job: powershell_script
+      steps:
+      - task: AzurePowerShell@5
+        displayName: Infrastructure Validation
+         inputs:
+            azureSubscription: 'migration-pipeline-test'
+            ScriptType: 'FilePath'
+            ScriptPath: './scripts/infrastructure-validation.ps1'
+            azurePowerShellVersion: 'LatestVersion'
+
+
+# Setting migration window - Pause stage here before migrating the VMs
+- stage: Cutover VMs
+  jobs:
+  - job: Server_bakcup
+    deployment: Set Cutover Window
+    environment: cutover_window_start
+    steps:
+    - task: AzurePowerShell@5
+        displayName: Backup of Servers
+          inputs:
+            azureSubscription: 'migration-pipeline-test'
+            ScriptType: 'FilePath'
+            ScriptPath: './scripts/backup-servers-script.ps1'
+            azurePowerShellVersion: 'LatestVersion' 
+
+
+# Start Migration Based on Wave - Can customize based on how want to execute the migration waves 
+- stage: Migrate VMs
+  jobs:
+    - job: migration_script
+      steps:
+      - task: AzureCLI@2
+        displayName: Deploy Bicep File
+            inputs:
+                azureSubscription: $(serviceConnectionName)
+                scriptType: bash
+                scriptLocation: inlineScript
+                inlineScript: |
+                    az --version
+                    az group create --name $(resourceGroupName) --location $(location)
+                    az deployment group create \
+                    --name $(Build.BuildNumber) \
+                    --resource-group $(ResourceGroupName) \
+                    --template-file $(templateFile) \
+                    --parameters testStorage=$(testStorage) 
+

@@ -1,0 +1,82 @@
+# all steps outlined in the devops document
+trigger:
+- main
+
+variables:
+- template: ./testing-variables.yml
+
+pool: windows-latest
+
+stages:
+# Outline parameters that simulate a smaller scale version of your environment
+# all resources that need to be deployed in one Bicep file 
+- stage: Testing with Isolated VNet
+  jobs:
+    - job: setup_isolated_vnet
+    steps:
+    - task: AzureCLI@2
+      displayName: Deploy Bicep File
+        inputs:
+            azureSubscription: $(serviceConnectionName)
+            scriptType: bash
+            scriptLocation: inlineScript
+            inlineScript: |
+                az --version
+                az group create --name $(resourceGroupName) --location $(location)
+                az deployment group create \
+                  --name $(Build.BuildNumber) \
+                  --resource-group $(ResourceGroupName) \
+                  --template-file $(templateFile) \
+                  --parameters testStorage=$(testStorage) 
+
+ # Initialize and Run Testing Migration Scripts           
+- stage: Deploy Testing Scripts 
+  jobs:
+    - job: uat_powershell_script
+      deployment: 
+      steps:
+      - task: AzurePowerShell@5
+        displayName: UAT Testing Script
+          inputs:
+            azureSubscription: 'migration-pipeline-test'
+            ScriptType: 'FilePath'
+            ScriptPath: './scripts/uat-test.ps1'
+            azurePowerShellVersion: 'LatestVersion' 
+    - job: smoke_test_powershell_script
+      steps:
+      - task: AzurePowerShell@5
+        displayName: Smoke Testing Script
+          inputs:
+            azureSubscription: 'migration-pipeline-test'
+            ScriptType: 'FilePath'
+            ScriptPath: './scripts/smoke-test.ps1'
+            azurePowerShellVersion: 'LatestVersion'
+    - job: failover_test_powershell_script
+      steps:
+      - task: AzurePowerShell@5
+        displayName: Smoke Testing Script
+          inputs:
+            azureSubscription: 'migration-pipeline-test'
+            ScriptType: 'FilePath'
+            ScriptPath: './scripts/failover-test.ps1'
+            azurePowerShellVersion: 'LatestVersion'
+
+# script to clean up resources used in testing environment - Can execute based on clearing out test RG
+# Add in approval here to execute once resources are validated
+- stage: Clean up Testing Resources
+ jobs:
+    - job: cleanup_powershell_script
+      deployment: CleanUpTestResources
+      displayName: Clean Up Testing Resources
+      environment: Test
+      strategy:
+        runOnce:
+          deploy: 
+            steps:
+            - task: AzurePowerShell@5
+              displayName: Cleanup Testing Script
+                inputs:
+                  azureSubscription: 'migration-pipeline-test'
+                  ScriptType: 'FilePath'
+                  ScriptPath: './scripts/cleanup-script.ps1'
+                  azurePowerShellVersion: 'LatestVersion' 
