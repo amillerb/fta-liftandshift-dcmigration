@@ -7,15 +7,15 @@ This section outlines the steps needed in order to execute an Azure DevOps Pipel
 [Infrastructure as Code Guidance](https://github.com/Azure/fta-live-iac#what-is-infrastructure-as-code)
 
 ## 1 Pre-Requisites
-### &nbsp;&nbsp;&nbsp;&nbsp; 1.1\. Gather VM information from the Migration Discovery (using CSV generated from the discovery as a reference) to setup a `variables.yml` for pipeline execution. Ensure that the capacity planning is accurate for these resources.
+### 1.1\. Gather VM information from the Migration Discovery (using CSV generated from the discovery as a reference) to setup a `variables.yml` for pipeline execution. Ensure that the capacity planning is accurate for these resources.
 
 
 ## 2 Redeployment/Rehosting Tools - Planning and Implementation
-### &nbsp;&nbsp;&nbsp;&nbsp; 2.1\. Create a project in Azure DevOps using guidance from the [DevOps/IaC Template](.\importing-template.md). This project template gives a baseline for getting started with planning and tracking migration tasks using [Azure Boards](https://docs.microsoft.com/en-us/azure/devops/boards/get-started/?view=azure-devops) and executing this migration path with [Azure Repos](https://docs.microsoft.com/en-us/azure/devops/repos/get-started/?view=azure-devops). In addition to this guidance, there are also sample [Azure Pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/pipelines-get-started?view=azure-devops) templates in this repo that can be used as a baseline for your migration pipelines. 
+### 2.1\. Create a project in Azure DevOps using guidance from the [DevOps/IaC Template](.\importing-template.md). This project template gives a baseline for getting started with planning and tracking migration tasks using [Azure Boards](https://docs.microsoft.com/en-us/azure/devops/boards/get-started/?view=azure-devops) and executing this migration path with [Azure Repos](https://docs.microsoft.com/en-us/azure/devops/repos/get-started/?view=azure-devops). In addition to this guidance, there are also sample [Azure Pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/pipelines-get-started?view=azure-devops) templates in this repo that can be used as a baseline for your migration pipelines. 
 
-### &nbsp;&nbsp;&nbsp;&nbsp; 2.2\. In the Azure DevOps Project Settings, allocate the appropriate permissions for users and Service Principals using least privilege. Also, create a service connection to use within your Azure DevOps environment for deployment purposes.
+### 2.2\. In the Azure DevOps Project Settings, allocate the appropriate permissions for users and Service Principals using least privilege. Also, create a service connection to use within your Azure DevOps environment for deployment purposes.
 
-### &nbsp;&nbsp;&nbsp;&nbsp; 2.3\. Create the appropriate repository for template storage and version control using guidance outlined below:
+### 2.3\. Create the appropriate repository for template storage and version control using guidance outlined below:
 
 Recommended folder structure:
 <br>
@@ -29,7 +29,7 @@ Details:
 - `migration-pipeline.yml`: file for running non-prod and prod migration waves
 
 
-### &nbsp;&nbsp;&nbsp;&nbsp; 2.3\. Create IaC templates for your deployment
+### 2.3\. Create IaC templates for your deployment
 If utilizing Bicep for your deployment, start [here](https://github.com/Azure/fta-live-iac#bicep) for a list of resources for getting started with Bicep and integrating it into an Azure DevOps Pipeline.
 
 - Set up any components such as a Shared Image Gallery with custom images
@@ -44,9 +44,9 @@ This section covers utilizing Azure Pipelines to execute IaC templates. The reco
 
 > Note: Guidance for utilizing 3rd Party Orchestration Engines (Optional) can be found [here](https://github.com/Azure/fta-live-iac#other-orchestrators)
 
-### &nbsp;&nbsp;&nbsp;&nbsp; 3.1\. Based on the migration wave, outline variables needed for the CI/CD pipeline in a [variables.yml](./pipelines/variables.yml) file.
+### 3.1\. Based on the migration wave, outline variables needed for the CI/CD pipeline in a [variables.yml](./pipelines/variables.yml) file.
 
-### &nbsp;&nbsp;&nbsp;&nbsp; 3.2\. Create a pipeline.yml for resource execution using the [template](./pipelines/migration-pipeline.yml) as a starter pipeline. Below are the environment-based Pipeline components descriptions:
+### 3.2\. Create a pipeline.yml for resource execution using the [template](./pipelines/migration-pipeline.yml) as a starter pipeline. Below are the environment-based Pipeline components descriptions:
 - Test
     - Testing scripts
     - Isolated VNet used to test and validate VMs
@@ -55,5 +55,5 @@ This section covers utilizing Azure Pipelines to execute IaC templates. The reco
 - Prod
     - Production Migration Wave Workload
 
-### &nbsp;&nbsp;&nbsp;&nbsp; 3.3\. Execute the pipeline for the appropriate migration wave and environment.
+### 3.3\. Execute the pipeline for the appropriate migration wave and environment.
 

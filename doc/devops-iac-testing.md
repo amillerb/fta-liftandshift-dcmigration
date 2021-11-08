@@ -7,7 +7,7 @@
 ## 1 Pre-Requisites
 [Reference for Pre-Migration and Post-Migration Activities](https://github.com/Azure/fta-liftandshift-dcmigration/blob/main/doc/testing.md#12-technical)
 
-### &nbsp;&nbsp;&nbsp;&nbsp; 1.1\. Pre-Migration Tasks 
+### 1.1\. Pre-Migration Tasks 
 - Setting up test pipeline by defining parameters for isolated VNet (i.e. CIDR block, NSG Ports that will open on the test subnet, etc.).
 - Ensure that appropriate stakeholders are given the least privilege permissions to execute the pipelines.
 - Define Migration approach through waves of execution
@@ -18,24 +18,24 @@
 - Clean up test resources that were deployed in an isolated VNet.
 
 
-### &nbsp;&nbsp;&nbsp;&nbsp; 1.2\. Post-Migration Tasks 
+### 1.2\. Post-Migration Tasks 
 - Validate VM migration was successful and that applications are functioning as should be
     - Perform capacity testing to ensure that functioning properly in production
 
-### &nbsp;&nbsp;&nbsp;&nbsp; 1.3\. Create IaC templates that outline a smaller scale environment 
+### 1.3\. Create IaC templates that outline a smaller scale environment 
 - Set up an isolated VNet to test if there is the correct connectivity ([Guidance for identifying target VNet](https://github.com/Azure/fta-liftandshift-dcmigration/blob/main/doc/testing.md#23-identify-target-vnets-tests-and-migration-workflow))
 - If able to have a maintenance window to shut down on-prem workload for test migration, set up a prod VNet with the parameters needed for production workloads to move to Azure. Perform tests on a smaller VM waves of the workloads first.
 
-### &nbsp;&nbsp;&nbsp;&nbsp; 1.4\. Create the appropriate Powershell Scripts that correlate to the [types of tests](https://github.com/Azure/fta-liftandshift-dcmigration/blob/main/doc/testing.md#2-migration-plan-definition) needed for your deployment:
+### 1.4\. Create the appropriate Powershell Scripts that correlate to the [types of tests](https://github.com/Azure/fta-liftandshift-dcmigration/blob/main/doc/testing.md#2-migration-plan-definition) needed for your deployment:
 - Smoke Test
 - UAT
 - Failover 
 
 ## 2 Pipeline Execution for Testing
 
-### &nbsp;&nbsp;&nbsp;&nbsp; 2.1\. Outline parameters that simulate a smaller scale version of your environment (use [`testing-variables.yml`](./pipelines/testing-variables.yml) as a sample)
+### 2.1\. Outline parameters that simulate a smaller scale version of your environment (use [`testing-variables.yml`](./pipelines/testing-variables.yml) as a sample)
 
-### &nbsp;&nbsp;&nbsp;&nbsp; 2.2\. Create a `testing-pipeline.yml` for resource execution using the provided [template](./pipelines/testing-pipeline.yml) as a baseline.
+### 2.2\. Create a `testing-pipeline.yml` for resource execution using the provided [template](./pipelines/testing-pipeline.yml) as a baseline.
 Pipeline Tasks:
 - Outline input parameters
 - Start Test Migration
@@ -47,9 +47,9 @@ Pipeline Tasks:
 - Validate Test Environment
 - Delete Test Resources 
 
-### &nbsp;&nbsp;&nbsp;&nbsp; 2.3\. Validate the correct parameters for the pipeline and execute the isolated VNet Testing Pipeline
+### 2.3\. Validate the correct parameters for the pipeline and execute the isolated VNet Testing Pipeline
 
-### &nbsp;&nbsp;&nbsp;&nbsp; 2.4\. If utilizing the final Migration VNet, set the maintenence window and prepare migration waves for execution using the sample pipeline [template](./pipelines/testing-pipeline.yml) for migration.
+### 2.4\. If utilizing the final Migration VNet, set the maintenence window and prepare migration waves for execution using the sample pipeline [template](./pipelines/testing-pipeline.yml) for migration.
 - If any of the tests fail within a pipeline stage, execute Rollback plan for the migration wave.
 
 ## 3 Recommendations for Testing Phase
