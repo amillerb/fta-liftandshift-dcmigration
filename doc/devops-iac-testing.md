@@ -11,12 +11,11 @@
 - Setting up test pipeline by defining parameters for isolated VNet (i.e. CIDR block, NSG Ports that will open on the test subnet, etc.).
 - Ensure that appropriate stakeholders are given the least privilege permissions to execute the pipelines.
 - Define Migration approach through waves of execution
-    - Understand dependencies to create migration/waves/groups.
+    - Understand dependencies to create migration waves/groups.
     - Define test cases.
-    - Ensure Rollback plan is in place for re-hosted VMs.
+    - Ensure Rollback plan is in place for the re-hosted VMs.
     - Make sure that test data is consistent with the data used in production.
 - Clean up test resources that were deployed in an isolated VNet.
-
 
 ### 1.2\. Post-Migration Tasks 
 - Validate VM migration was successful and that applications are functioning as should be
@@ -33,9 +32,9 @@
 
 ## 2 Pipeline Execution for Testing
 
-### 2.1\. Outline parameters that simulate a smaller scale version of your environment (use [`testing-variables.yml`](./pipelines/testing-variables.yml) as a sample)
+### 2.1\. Outline parameters that simulate a smaller scale version of your environment (use [`testing-variables.yml`](../pipelines/testing-variables.yml) as a sample)
 
-### 2.2\. Create a `testing-pipeline.yml` for resource execution using the provided [template](./pipelines/testing-pipeline.yml) as a baseline.
+### 2.2\. Create a `testing-pipeline.yml` for resource execution using the provided [template](../pipelines/testing-pipeline.yml) as a baseline.
 Pipeline Tasks:
 - Outline input parameters
 - Start Test Migration
@@ -47,13 +46,7 @@ Pipeline Tasks:
 - Validate Test Environment
 - Delete Test Resources 
 
-### 2.3\. Validate the correct parameters for the pipeline and execute the isolated VNet Testing Pipeline
+### 2.3\. Validate the correct parameters for the pipeline and execute the isolated VNet Testing Pipeline.
 
-### 2.4\. If utilizing the final Migration VNet, set the maintenence window and prepare migration waves for execution using the sample pipeline [template](./pipelines/testing-pipeline.yml) for migration.
+### 2.4\. If utilizing the final Migration VNet, set the maintenence window and prepare migration waves for execution using the sample pipeline [template](../pipelines/migration-pipeline.yml) for migration.
 - If any of the tests fail within a pipeline stage, execute Rollback plan for the migration wave.
-
-## 3 Recommendations for Testing Phase
-- Consider inputing error handling and adding a task for your rollback plan within your pipeline
-
-
- 
