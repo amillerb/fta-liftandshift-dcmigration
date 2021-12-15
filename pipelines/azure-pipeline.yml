@@ -12,7 +12,7 @@ steps:
   inputs:
     azureSubscription: '$(serviceConnectionName)'
     scriptType: 'FilePath'
-    scriptPath: '$(Build.SourcesDirectory)\pipeline-script.ps1'
+    scriptPath: '$(Build.SourcesDirectory)\scripts\pipeline-script.ps1'
     azurePowerShellVersion: 'LatestVersion'
     scriptArguments:
       -AssessedMachinesFilePath '$(Build.SourcesDirectory)\All_Assessed_Machines.csv' `
