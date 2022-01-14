@@ -19,8 +19,8 @@ This section outlines the steps needed in order to execute an Azure DevOps Pipel
 ### 2.3\. Create the appropriate repository for scripts storage, CSV files and version control using guidance outlined below:
 
 Recommended folder structure:
-<br>
-![Migration Tree](../png/folder-structure-pwsh.png) </p>
+
+![Migration Tree](../png/folder-structure.png)
 
 Details:
 - `All_Assessed_Machines.csv` and `All_Assessed_Disks.csv`: CSV files extracted from Azure Migrate Assessement excel file
