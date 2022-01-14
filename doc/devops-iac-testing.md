@@ -21,7 +21,7 @@
 - Validate VM migration was successful and that applications are functioning as should be
     - Perform capacity testing to ensure that functioning properly in production
 
-### 1.3\. Create IaC templates that outline a smaller scale environment 
+### 1.3\. Define parameters for a smaller scale environment to use for Test Migrations 
 - Set up an isolated VNet to test if there is the correct connectivity ([Guidance for identifying target VNet](https://github.com/Azure/fta-liftandshift-dcmigration/blob/main/doc/testing.md#23-identify-target-vnets-tests-and-migration-workflow))
 - If able to have a maintenance window to shut down on-prem workload for test migration, set up a prod VNet with the parameters needed for production workloads to move to Azure. Perform tests on a smaller VM waves of the workloads first.
 

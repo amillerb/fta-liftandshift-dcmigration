@@ -3,7 +3,7 @@
 #### [prev](./devops-iac-testing.md) | [home](./welcome.md)  
 
 ## 1 Pipeline Execution for Migration
-### 1.1\. Example Pipeline Stages for Migration utilizing the provided [template](./pipelines/migration-pipeline.yml).
+### 1.1\. Example Pipeline Stages for Migration utilizing the provided [template](../pipelines/rehost/azure-pipeline.yml).
 - Setup Cutover Window within the pipeline
     - Ensure that there is already a backup of the servers before cutover
 - Initialize Migration
