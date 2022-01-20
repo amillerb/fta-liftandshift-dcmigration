@@ -2,7 +2,7 @@
 
 #### [prev](./devops-iac-redeployment.md) | [home](./welcome.md)  | [next](./devops-iac-testing.md)
  
-This section outlines the steps needed in order to execute an Azure DevOps Pipeline with the appropriate tasks needed for VM Redeployment/Rehosting.
+This section outlines the steps needed in order to setup an Azure DevOps Pipeline with the appropriate tasks needed for VM Redeployment/Rehosting.
 
 ## 1 Pre-Requisites
 

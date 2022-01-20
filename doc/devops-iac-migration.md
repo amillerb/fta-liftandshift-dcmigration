@@ -2,18 +2,23 @@
 
 #### [prev](./devops-iac-testing.md) | [home](./welcome.md)  
 
-## 1 Pipeline Execution for Migration
+This section outlines the recommended migration steps to execute an Azure DevOps Pipeline for the deployment of servers. 
+
+## 1 Pre-Requisites
+Please refer to the [Milestone: Redeployment/Rehosting of Migration Waves](./devops-iac-redeployment.md) page in order to have the correct setup for this deployment.
+> Note: The assessment CSV acts as the source of deployment information for the migration wave execution via the Azure Pipeline. Please ensure that once the CSVs are created that the unscoped VMs from the `All_Assessed_Machines.csv` and `All_Assessed_Disks.csv` files are manually omitted.
+
 ### 1.1\. Example Pipeline Stages for Migration utilizing the provided [template](../pipelines/rehost/migration-pipeline.yml).
 - Setup Cutover Window within the pipeline
-    - Ensure that there is already a backup of the servers before cutover
+    - Ensure that there is a backup of the servers before cutover
 - Initialize Migration
     - Declare input parameters and modify Target Subscription
 - Start Migration
-    - Migrate via IaC in specified waves (non-prod to prod as recommended path)
+    - Migrate via pipeline specifications in migration waves 
 - Have rollback plan ready for execution if needed (send traffic to previous server)
 
 ## 2 Pipeline Execution for Rehost/Redeployment
-This section covers utilizing Azure Pipelines to execute Powershell scripts to create the environment to rehost the VMs within.
+This section covers utilizing Azure Pipelines to execute Powershell scripts to create the environment to rehost the VMs within the specified Azure environment.
 
 > Note: Guidance for utilizing 3rd Party Orchestration Engines (Optional) can be found [here](https://github.com/Azure/fta-live-iac#other-orchestrators)
 
