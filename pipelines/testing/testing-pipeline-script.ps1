@@ -159,7 +159,7 @@ function GetOS {
         $templateOS.Ostype = "Linux"
         return $templateOS
     }
-    Write-Error -Message "Windows OS not found"
+    Write-Error -Message "Input OS not found"
     throw
 }
 
