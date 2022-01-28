@@ -1,3 +1,8 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
 trigger:
 - none
 
@@ -8,11 +13,22 @@ pool:
   vmImage: windows-latest
 
 steps:
+- task: AzureCLI@2
+  displayName: Azure CLI
+  inputs:
+    azureSubscription: '$(serviceConnectionName)'
+    scriptType: bash
+    scriptLocation: inlineScript
+    inlineScript: |
+      az --version
+      az account show
+      az account set --subscription $(subscription)
+
 - task: AzurePowerShell@5
   inputs:
     azureSubscription: '$(serviceConnectionName)'
     scriptType: 'FilePath'
-    scriptPath: '$(Build.SourcesDirectory)\rehost\pipeline-script.ps1'
+    scriptPath: '$(Build.SourcesDirectory)\pipeline-script.ps1'
     azurePowerShellVersion: 'LatestVersion'
     scriptArguments:
       -AssessedMachinesFilePath '$(Build.SourcesDirectory)\All_Assessed_Machines.csv' `

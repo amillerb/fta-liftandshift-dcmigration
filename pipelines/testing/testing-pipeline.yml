@@ -23,21 +23,20 @@ stages:
             az --version
             az account show
             az account set --subscription $(subscription)
-     
       - task: AzurePowerShell@5
         inputs:
           azureSubscription: '$(serviceConnectionName)'
           ScriptType: 'InlineScript'
           Inline: |
             $defaultSubnet = New-AzVirtualNetworkSubnetConfig -Name '$(subnetName)' -AddressPrefix '$(subnetCIDR)'
-
             New-AzVirtualNetwork -Name '$(virtualNetworkName)' -ResourceGroupName '$(ResourceGroupName)' -Location '$(location)' -AddressPrefix '$(vnetCIDR)' -Subnet $defaultSubnet
-      
+          azurePowerShellVersion: 'LatestVersion'
       - task: AzurePowerShell@5
+        displayName: Run Test Environment Script
         inputs:
           azureSubscription: '$(serviceConnectionName)'
           scriptType: 'FilePath'
-          scriptPath: '$(Build.SourcesDirectory)\testing\testing-pipeline-script.ps1'
+          scriptPath: '$(Build.SourcesDirectory)\testing-pipeline-script.ps1'
           azurePowerShellVersion: 'LatestVersion'
           scriptArguments:
             -AssessedMachinesFilePath '$(Build.SourcesDirectory)\All_Assessed_Machines.csv' `
@@ -48,7 +47,7 @@ stages:
             -SubnetName '$(subnetName)'`
             -VNetCIDR '$(vnetCIDR)' `
             -SubnetCIDR '$(subnetCIDR)'
-            
+          errorActionPreference: 'silentlyContinue'
 # # Initialize and Run Testing Migration Scripts           
 # - stage: Deploy Testing Scripts 
 #   jobs:

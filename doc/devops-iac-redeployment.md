@@ -36,9 +36,13 @@ To get started, the assumption is the following:
 
 ### 2.2\. In the Azure DevOps Project Settings, allocate the appropriate permissions for users and Service Principals using least privilege principles.
 * Create [a service connection](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/connect-to-azure?view=azure-devops#:~:text=In%20TFS%2C%20open%20the%20Services%20page%20from%20the,to%20use%20when%20referring%20to%20this%20service%20connection.) to use within your Azure DevOps environment for resource deployment purposes.
+* Create a resource group within your Azure environment for your resources to be hosted in
+    * Ensure that the Service principal that is created with this service connection (with the naming convention `<organization>-<project-name>-<subscription-id>`) has the appropriate permissions (listed below) in order to create resources within Azure.
+        * Roles: Virtual Machine Contributor, Storage Account Contributor
 
 ### 2.3\. Create the appropriate repository for scripts storage, CSV files and version control using guidance outlined below:
 * This file structure will be auto created for you within the repo (can also be found under the pipelines folder)
+> Note: With the virtual machines that are created in the script, the default for Linux machines are Ubuntu OS.
 
 Recommended folder structure:
 
@@ -55,6 +59,3 @@ Details:
     - `azure-pipeline.yml`: file for rehosting VMs in a specified migration VNet
     - `variables.yml`: variables used in powershell and pipeline yaml
         - Manually populate the `variables.yml` using CSV recommended values and what is expected in Azure.
-
-Other approaches using Infrastructure as Code:
-* [Infrastructure as Code Guidance](https://github.com/Azure/fta-live-iac#what-is-infrastructure-as-code)
