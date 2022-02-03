@@ -6,15 +6,16 @@ This section outlines the recommended migration steps to execute an Azure DevOps
 
 ## 1 Pre-Requisites
 Please refer to the [Milestone: Redeployment/Rehosting of Migration Waves](./devops-iac-redeployment.md) page in order to have the correct setup for this deployment.
+* Reference Migration Tasks: [Milestone: Wave Migration and Post Go-Live](https://github.com/Azure/fta-liftandshift-dcmigration/blob/main/doc/migration.md)
 > Note: The assessment CSV acts as the source of deployment information for the migration wave execution via the Azure Pipeline. Please ensure that once the CSVs are created that the unscoped VMs from the `All_Assessed_Machines.csv` and `All_Assessed_Disks.csv` files are manually omitted.
 
-### 1.1\. Example Pipeline Stages for Migration utilizing the provided [template](../pipelines/rehost/migration-pipeline.yml).
+### 1.1\. Pipeline Stages for Migration utilizing the provided [template](../pipelines/rehost/migration-pipeline.yml).
 - Setup Cutover Window within the pipeline
     - Ensure that there is a backup of the servers before cutover
 - Initialize Migration
     - Declare input parameters and modify Target Subscription
 - Start Migration
-    - Migrate via pipeline specifications in migration waves 
+    - Migrate via pipeline specifications in migration waves
 - Have rollback plan ready for execution if needed (send traffic to previous server)
 
 ## 2 Pipeline Execution for Rehost/Redeployment
@@ -22,7 +23,7 @@ This section covers utilizing Azure Pipelines to execute Powershell scripts to c
 
 > Note: Guidance for utilizing 3rd Party Orchestration Engines (Optional) can be found [here](https://github.com/Azure/fta-live-iac#other-orchestrators)
 
-### 2.1\. Based on the migration wave, fill in variables needed for the CI/CD pipeline, using the [variables.yml](../pipelines/rehost/variables.yml) file as a template.
+### 2.1\. Based on the migration wave, manually fill in variables needed for the CI/CD pipeline, using the [variables.yml](../pipelines/rehost/variables.yml) file as a template.
 
 ### 2.2\. Create a [migration-pipeline.yml](../pipelines/rehost/migration-pipeline.yml) for resource execution using the templates as a starter pipeline.
 
