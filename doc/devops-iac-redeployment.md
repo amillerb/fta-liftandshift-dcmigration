@@ -2,7 +2,10 @@
 
 #### [prev](./devops-iac-redeployment.md) | [home](./welcome.md)  | [next](./devops-iac-testing.md)
  
+## Overview
 This section outlines the steps needed in order to setup an Azure DevOps Pipeline with the appropriate tasks needed for VM Redeployment/Rehosting. This implementation provides a baseline method of executing lift-and-shift IaaS migrations using Infrastructure as Code and Azure DevOps to track migration waves and progress.
+
+The sample pipeline takes the output of an Azure Migrate Assessment and creates new VMs based on the configuration from the exported assessment output. The VMs that will be created via this sample pipeline are empty Marketplace images, ready for configuration and app installation.
 
 ## 1 Pre-Requisites
 
@@ -12,13 +15,13 @@ To get started, the assumption is the following:
 * The assessment was exported as an Excel file to your local machine.
 * An [Azure DevOps Organization](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/organization-management?view=azure-devops) is created and linked to your subscriptions in Azure.
 * The [pipelines folder](../pipelines/) is cloned on your local machine.
-* [Powershell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.2) and Excel are installed on your local machine.
+* [PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.2) and Excel are installed on your local machine.
 
 
 ### 1.1\. Convert the XSLX Assessment into a CSV
 * On your local machine, transfer the Azure Migrate Assessment excel file to the local `pipelines` folder and navigate to the folder.
 * Using the [provided PowerShell script](../pipelines/convert-xlsx-to-csv.ps1)
-* Open a powershell session in terminal, navigate to the folder and run with the command: 
+* Open a PowerShell session in terminal, navigate to the folder and run with the command: 
 
 ```azurepowershell
 .\convert-xlsx-to-csv.ps1 -fullFilePath "<file-path>"

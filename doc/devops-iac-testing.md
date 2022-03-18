@@ -2,7 +2,10 @@
 
 #### [prev](./devops-iac-redeployment.md) | [home](./welcome.md)  | [next](./devops-iac-migration.md)
 
+## Overview
 This section outlines the steps needed in order to execute an Azure DevOps Pipeline with the appropriate tasks needed for setting up a test environment for migration. This implementation focuses on rehosting a subset of the defined migration wave in order to test the server functionality with the parameters from the Azure Migrate Assessment.
+
+The sample pipeline takes the output of an Azure Migrate Assessment and creates an isolated test environment with new VMs that are based on the configuration from the exported assessment output. The VMs that will be created via this sample pipeline are empty Marketplace images, ready for configuration and app installation.
 
 ## 1 Pre-Requisites
 To get started, the assumption is the following:
@@ -12,7 +15,7 @@ To get started, the assumption is the following:
 * The assessment was exported as an Excel file to your local machine.
 * An [Azure DevOps Organization](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/organization-management?view=azure-devops) is created and linked to your subscription in Azure.
 * The [pipelines folder](../pipelines/) is cloned on your local machine.
-* [Powershell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.2) and Excel are installed on your local machine.
+* [PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.2) and Excel are installed on your local machine.
 
 
 ### 1.1\. Pre-Migration Tasks 
@@ -48,6 +51,8 @@ Please refer to the [Pre-Migration and Post-Migration Activities](https://github
 ```
 
 ## 2 Pipeline Execution for Testing
+
+This sample testing pipeline can be customized to fit the needs of your organization and can be modified to incorporate specific tests needed for your app validation in the Testing phase of migration.
 
 ### 2.1\. Input parameters your environment using the [testing-variables.yml](../pipelines/testing/testing-variables.yml) as a template.
 

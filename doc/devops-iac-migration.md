@@ -2,7 +2,9 @@
 
 #### [prev](./devops-iac-testing.md) | [home](./welcome.md)  
 
-This section outlines the recommended migration steps to execute an Azure DevOps Pipeline for the deployment of servers. 
+## Overview
+
+This section outlines the recommended migration steps to execute an Azure DevOps Pipeline for the deployment of servers. This is a sample pipeline deployment that can be customized to your Migration Wave cycles outlined in the exported Azure Migrate Assessments.
 
 ## 1 Pre-Requisites
 Please refer to the [Milestone: Redeployment/Rehosting of Migration Waves](./devops-iac-redeployment.md) page in order to have the correct setup for this deployment.
