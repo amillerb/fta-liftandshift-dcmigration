@@ -46,9 +46,7 @@ Please refer to the [Pre-Migration and Post-Migration Activities](https://github
 - UAT
 - Failover
 
-```
-**[testing workflow diagram]**
-```
+![Concept Diagram](../png/migration-workflow.PNG)
 
 ## 2 Pipeline Execution for Testing
 
